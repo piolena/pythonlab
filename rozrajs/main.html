@@ -5,20 +5,6 @@
     <title>Плёночные фотоппараты</title>
     <link rel="stylesheet" href="main.css"/>
     <script type="text/javascript" src="diafragma.js"></script>
-    <script type="text/javascript" src="calendar.js"></script>
-    <script type="text/javascript" src="various.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            calc_and_apply_to_DOM();
-            setInterval(update_calendar, 1000);
-        };
-
-
-
-
-
-
-    </script>
     <style>
         body {
                 background: rgba(238,206,155,1);
@@ -30,11 +16,6 @@
                 background: linear-gradient(to bottom, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
             }
 
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -44,58 +25,42 @@
     <div class="row">
         <ul>
             <li>
-                <div style="margin: 30px; padding: 20px; background-color: white">
+                <div style="margin: 30px; padding: 20px; background-color: white;">
                     <form name="deep" id="deep">
                         <fieldset>
                             <legend>Расчет диафрагмы по глубине резкости</legend>
                             <span>Фокусное объектва:</span>
-                            <input type="range" name="focus" min="1" max="10" step="1"
-                                   onchange="update(this, 'focus_value')">
-                            <span id="focus_value">0</span>
+                            <select name="focus" onchange="update(this, 'focus_value')">
+                                <option value="1">small</option>
+                                <option value="2">medium</option>
+                                <option value="3" default="default">big</option>
+                            </select>
+                            <span id="focus_value">3</span><br>
 
                             <span>Диаметр резкости:</span>
                             <input type="range" name="delta" min="0" max="1" step="0.01"
-                                   onchange="update(this, 'delta_value')">
-                            <span id="delta_value">0</span><br>
+                                   onchange="update(this, 'delta_value')" value="0.5">
+                            <span id="delta_value">0.5</span><br>
 
                             <span>Ближний радиус:</span>
                             <input type="range" name="r_min" min="1" max="1000" step="1"
-                                   onchange="update(this, 'r_min_value')">
-                            <span id="r_min_value">0</span>
+                                   onchange="update(this, 'r_min_value')" value="50">
+                            <span id="r_min_value">50</span><br>
 
                             <span>Расстояние до объекта:</span>
                             <input type="range" name="r_center" min="1" max="1000" step="1"
-                                   onchange="update(this, 'r_center_value')">
-                            <span id="r_center_value">0</span>
+                                   onchange="update(this, 'r_center_value')" value="100">
+                            <span id="r_center_value">100</span><br>
 
                             <span>Дальний радиус:</span>
                             <input type="range" name="r_max" min="1" max="1000" step="1"
-                                   onchange="update(this, 'r_max_value')">
-                            <span id="r_max_value">0</span><br>
+                                   onchange="update(this, 'r_max_value')" value="500">
+                            <span id="r_max_value">500</span><br>
 
                             <span>Диафрагма:</span><span id="diafragma_value">0</span>
                         </fieldset>
                     </form>
                 </div>
-            </li>
-            <li>
-                <div style="margin: 30px; padding: 20px; background-color: #FFAA87; width:250px;">
-                    <form name="quest" id="quest">
-                        <fieldset>
-                            <legend>Вы хотите пленочный фотоаппарат?</legend>
-                            <input type="button" name="no" value="нет, спасибо уже есть" onclick="alert('До встречи')">
-                            <input type="button" name="yes" value="да, да, давайте два"
-                                   onclick="alert('Ждите, уже выслали')"
-                                   onmouseover="noway(this);" onmouseout="show(this);">
-                        </fieldset>
-                    </form>
-                    <span>now:</span>
-                    <span id="current_date" style="margin 0 30px 0 30px;"></span>
-                    <span id="current_time"></span>
-                </div>
-            </li>
-            <li>
-                <div class="row"></div>
             </li>
         </ul>
         <hr>
@@ -182,7 +147,6 @@
             </ul>
         </div>
     </div>
-
 </div>
 </body>
 </html>

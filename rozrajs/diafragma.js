@@ -29,3 +29,8 @@ var update = function(el, caption_id) {
     calc_and_apply_to_DOM();
 }
 
+window.onload = function () {
+    calc_and_apply_to_DOM();
+};
+
+

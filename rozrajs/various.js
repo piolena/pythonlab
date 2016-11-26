@@ -1,12 +1,4 @@
 
-var noway = function(el) {
-    el.style['margin-top'] = 50 + "px";
-}
-
-var show = function(el) {
-    el.style['margin-top'] = "0px";
-}
-
 var bw_image = function(img_id) {
     var img = document.getElementById(img_id);
 
