@@ -9,21 +9,15 @@ a:hover {
 }
 
 body {
-    background: rgba(238,206,155,1);
-    background: -moz-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(238,206,155,1)), color-stop(66%, rgba(253,249,242,1)), color-stop(100%, rgba(253,249,242,1)));
-    background: -webkit-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
-    background: -o-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
-    background: -ms-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
-    background: linear-gradient(to bottom, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .row ul {
     display:flex;
     justify-content: space-between;
     list-style-type: none;
+    margin: 10px 20px 10px 20px;
 }
 
 .title {
@@ -42,6 +36,19 @@ body {
 
     margin: 30px 30px 30px 30px;
     padding: 30px 30px 30px 30px;
+
+    background-color: white;
+}
+
+.photo_without_margin {
+    border: 0px solid #000000;
+
+    -webkit-box-shadow: 7px 10px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 10px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 7px 10px 14px 0px rgba(0,0,0,0.75);
+
+    padding: 3px;
+    margin: 10px;
 
     background-color: white;
 }

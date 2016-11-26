@@ -3,8 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Шкальные</title>
+    <link rel="stylesheet" href="main.css"/>
+    <style>
+        body  {
+            background-image: url("images/field.jpg");
+            background-color: #cccccc;
+            background-repeat: round;
+        }
+
+    </style>
+    <script type="text/javascript" src="calendar.js"></script>
+    <script type="text/javascript" src="various.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            setInterval(update_calendar, 1000);
+        }
+
+    </script>
 </head>
 <body>
-        <a href="main.html">Вернуться к главному списку</a>
+<div class="row">
+    <h3 style="text-align: center;">Шкальные фотоаппараты</h3>
+    <ul>
+        <li>
+            <p>Предлагаем Вашему вниманию фотографию, снятую на <b>Шкальные</b> пленочный фотоаппарат. </p>
+            У вас будут получаться хорошие снимки, не более.
+            <p>
+            </p>
+        </li>
+        <li>
+            <div style="text-align: center;">
+                <input type="button" value="Другая сторона фото" onclick="bw_image('horse')">
+                <a href="main.html">Вернуться к главному списку</a>
+            </div>
+            <div class="photo_without_margin">
+                <a href="mirror.html"><img id="horse" width="1200px" height="800px" src="images/horses.jpg"></a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>now:</span>
+                <span id="current_date" style="margin 0 30px 0 30px;"></span>
+                <span id="current_time"></span>
+            </div>
+            <p style="text-align:justify">
+                <b>Шкальные</b> Эти представители пленочников имеют не сменную оптику в пределах 38-40 мм, большинство
+                из них использовали ручной механизм наведения резкости. Данные камеры часто компактные и относятся к
+                любительскому классу. Их можно использовать в любых ситуациях, они не требуют специальных знаний и
+                умения в съемке. У вас будут получаться хорошие снимки, не более.</p> <p>
+
+                Вы можете рассматривать такие пленочные шкальные камеры: Rollei 35, Смена 8М, Zeiss Ikon Contessa,
+                Olympus μ. Конечно же их производство приостановлено, поэтому можно рассчитывать только на покупку бу
+                фотоаппарата.
+            </p>
+        </li>
+    </ul>
+</div>
 </body>
 </html>

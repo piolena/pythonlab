@@ -3,8 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Зеркальные</title>
+    <link rel="stylesheet" href="main.css"/>
+    <style>
+        body  {
+            background-image: url("images/field.jpg");
+            background-color: #cccccc;
+            background-repeat: round;
+        }
+    </style>
+    <script type="text/javascript" src="calendar.js"></script>
+    <script type="text/javascript" src="various.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            setInterval(update_calendar, 1000);
+        }
+    </script>
 </head>
 <body>
-    <a href="main.html">Вернуться к главному списку</a>
+<div class="row">
+    <h3 style="text-align: center;">Зеркальные фотоаппараты</h3>
+    <ul>
+        <li>
+            <p>Предлагаем Вашему вниманию фотографию, снятую на зеркальный пленочный фотоаппарат. </p>
+            <p>С помощью зеркального аппарата можно делать самые настоящие шедевры, которые взорвут мир.
+                Поэтому при любой возможности покупайте себе такую технику. Она никогда не будет лишней в хозяйстве.
+            </p>
+        </li>
+        <li>
+            <div style="text-align: center;">
+                <input type="button" value="Другая сторона фото" onclick="bw_image('horse')">
+                <a href="main.html">Вернуться к главному списку</a>
+            </div>
+            <div class="photo_without_margin">
+                <a href="mirror.html"><img id="horse" src="images/cover_horse.jpg"></a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>now:</span>
+                <span id="current_date" style="margin 0 30px 0 30px;"></span>
+                <span id="current_time"></span>
+            </div>
+            <p style="text-align:justify">
+                Зеркальные аппараты наиболее популярны и понятны в своей работе
+                большинству любителей. Большинство моделей сейчас находятся на вторичном рынке, потому как только две
+                модели
+                продолжают выпускать: Nikon F6 и Nikon FM10. Остальные камеры можно искать на барахолках и на складах
+                подвальных
+                магазинов: Canon, Nikon, Pentax, Olympus, Minolta: Canon FTb QL, Canon A-1, Canon EOS 3, Canon
+                F-1N), Leica R6. Также никто не списывает со счетов таких старичков как Зенит, Смена, Москва,
+                Зоркий.
+            </p>
+        </li>
+    </ul>
+</div>
 </body>
 </html>

@@ -4,119 +4,184 @@
     <meta charset="UTF-8">
     <title>Плёночные фотоппараты</title>
     <link rel="stylesheet" href="main.css"/>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="diafragma.js"></script>
+    <script type="text/javascript" src="calendar.js"></script>
+    <script type="text/javascript" src="various.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            calc_and_apply_to_DOM();
+            setInterval(update_calendar, 1000);
+        };
+
+
+
+
+
+
+    </script>
+    <style>
+        body {
+                background: rgba(238,206,155,1);
+                background: -moz-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(238,206,155,1)), color-stop(66%, rgba(253,249,242,1)), color-stop(100%, rgba(253,249,242,1)));
+                background: -webkit-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
+                background: -o-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
+                background: -ms-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
+                background: linear-gradient(to bottom, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
+            }
+
+
+
+
+
+
+    </style>
 </head>
 <body>
 <div class="main" style="text-align:center;">
     <h1 class="title">Мир плёночной фотографии</h1>
     <hr>
-    <div style="margin: 30px; padding: 20px; background-color: white">
-        <form name="deep" id="deep">
-            <fieldset>
-                <legend>Расчет диафрагмы по глубине резкости</legend>
-                <span>Фокусное объектва:</span>
-                <input type="range" name="focus" min="1" max="10" step="1"
-                       onchange="update(this, 'focus_value')">
-                <span id="focus_value">0</span>
-
-                <span>Диаметр резкости:</span>
-                <input type="range" name="delta" min="0" max="1" step="0.01"
-                       onchange="update(this, 'delta_value')">
-                <span id="delta_value">0</span><br>
-
-                <span>Ближний радиус:</span>
-                <input type="range" name="r_min" min="1" max="1000" step="1"
-                       onchange="update(this, 'r_min_value')">
-                <span id="r_min_value">0</span>
-
-                <span>Расстояние до объекта:</span>
-                <input type="range" name="r_center" min="1" max="1000" step="1"
-                       onchange="update(this, 'r_center_value')">
-                <span id="r_center_value">0</span>
-
-                <span>Дальний радиус:</span>
-                <input type="range" name="r_max" min="1" max="1000" step="1"
-                       onchange="update(this, 'r_max_value')">
-                <span id="r_max_value">0</span><br>
-
-                <span>Диафрагма:</span><span id="diafragma_value">0</span>
-            </fieldset>
-        </form>
-    </div>
-    <hr>
     <div class="row">
         <ul>
             <li>
-                <div class="photo">
-                    <a href="mirror.html"><img src="images/mirr_camera.jpg"></a>
+                <div style="margin: 30px; padding: 20px; background-color: white">
+                    <form name="deep" id="deep">
+                        <fieldset>
+                            <legend>Расчет диафрагмы по глубине резкости</legend>
+                            <span>Фокусное объектва:</span>
+                            <input type="range" name="focus" min="1" max="10" step="1"
+                                   onchange="update(this, 'focus_value')">
+                            <span id="focus_value">0</span>
+
+                            <span>Диаметр резкости:</span>
+                            <input type="range" name="delta" min="0" max="1" step="0.01"
+                                   onchange="update(this, 'delta_value')">
+                            <span id="delta_value">0</span><br>
+
+                            <span>Ближний радиус:</span>
+                            <input type="range" name="r_min" min="1" max="1000" step="1"
+                                   onchange="update(this, 'r_min_value')">
+                            <span id="r_min_value">0</span>
+
+                            <span>Расстояние до объекта:</span>
+                            <input type="range" name="r_center" min="1" max="1000" step="1"
+                                   onchange="update(this, 'r_center_value')">
+                            <span id="r_center_value">0</span>
+
+                            <span>Дальний радиус:</span>
+                            <input type="range" name="r_max" min="1" max="1000" step="1"
+                                   onchange="update(this, 'r_max_value')">
+                            <span id="r_max_value">0</span><br>
+
+                            <span>Диафрагма:</span><span id="diafragma_value">0</span>
+                        </fieldset>
+                    </form>
                 </div>
             </li>
             <li>
-                <a href="mirror.html"><h3>Зеркальная пленочная камера</h3></a>
-                <p style="text-align:justify">Зеркальные аппараты наиболее популярны и понятны в своей работе
-                    большинству
-                    любителей. Большинство моделей сейчас находятся на вторичном рынке, потому как только две модели
-                    продолжают выпускать:
-                    Nikon F6 и Nikon FM10. Остальные камеры можно искать на барахолках и на складах подвальных
-                    магазинов: Canon, Nikon, Pentax, Olympus, Minolta: Canon FTb QL, Canon A-1, Canon EOS 3, Canon
-                    F-1N), Leica R6. Также никто не списывает со счетов таких старичков как Зенит, Смена, Москва,
-                    Зоркий.</p>
-
-                <p>С помощью зеркального аппарата можно делать самые настоящие шедевры, которые взорвут мир. Поэтому
-                    при
-                    любой возможности покупайте себе такую технику. Она никогда не будет лишней в хозяйстве.</p>
-            </li>
-        </ul>
-    </div>
-    <div class="row">
-        <ul>
-            <li>
-                <h3><a href="long_distance.html">Дальномерные</a></h3>
-                <p style="text-align:justify">Зеркальные аппараты наиболее популярны и понятны в своей работе
-                    большинству
-                    любителей. Большинство моделей сейчас находятся на вторичном рынке, потому как только две модели
-                    продолжают выпускать:
-                    Nikon F6 и Nikon FM10. Остальные камеры можно искать на барахолках и на складах подвальных
-                    магазинов: Canon, Nikon, Pentax, Olympus, Minolta: Canon FTb QL, Canon A-1, Canon EOS 3, Canon
-                    F-1N), Leica R6. Также никто не списывает со счетов таких старичков как Зенит, Смена, Москва,
-                    Зоркий.</p>
-
-                <p>С помощью зеркального аппарата можно делать самые настоящие шедевры, которые взорвут мир. Поэтому
-                    при
-                    любой возможности покупайте себе такую технику. Она никогда не будет лишней в хозяйстве.</p>
-            </li>
-            <li>
-                <div class="photo">
-                    <a href="mirror.html"><img src="images/long_camera.jpg"></a>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="row">
-        <ul>
-            <li>
-                <div class="photo">
-                    <a href="mirror.html"><img src="images/scale_camera.jpg"></a>
+                <div style="margin: 30px; padding: 20px; background-color: #FFAA87; width:250px;">
+                    <form name="quest" id="quest">
+                        <fieldset>
+                            <legend>Вы хотите пленочный фотоаппарат?</legend>
+                            <input type="button" name="no" value="нет, спасибо уже есть" onclick="alert('До встречи')">
+                            <input type="button" name="yes" value="да, да, давайте два"
+                                   onclick="alert('Ждите, уже выслали')"
+                                   onmouseover="noway(this);" onmouseout="show(this);">
+                        </fieldset>
+                    </form>
+                    <span>now:</span>
+                    <span id="current_date" style="margin 0 30px 0 30px;"></span>
+                    <span id="current_time"></span>
                 </div>
             </li>
             <li>
-                <h3><a href="scaled.html">Шкальные</a></h3>
-                <p style="text-align:justify">Зеркальные аппараты наиболее популярны и понятны в своей работе
-                    большинству
-                    любителей. Большинство моделей сейчас находятся на вторичном рынке, потому как только две модели
-                    продолжают выпускать:
-                    Nikon F6 и Nikon FM10. Остальные камеры можно искать на барахолках и на складах подвальных
-                    магазинов: Canon, Nikon, Pentax, Olympus, Minolta: Canon FTb QL, Canon A-1, Canon EOS 3, Canon
-                    F-1N), Leica R6. Также никто не списывает со счетов таких старичков как Зенит, Смена, Москва,
-                    Зоркий.</p>
-
-                <p>С помощью зеркального аппарата можно делать самые настоящие шедевры, которые взорвут мир. Поэтому
-                    при
-                    любой возможности покупайте себе такую технику. Она никогда не будет лишней в хозяйстве.</p>
+                <div class="row"></div>
             </li>
         </ul>
+        <hr>
+        <div class="row">
+            <ul>
+                <li>
+                    <div class="photo">
+                        <a href="mirror.html"><img src="images/mirr_camera.jpg"></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="mirror.html"><h3>Зеркальная пленочная камера</h3></a>
+                    <p style="text-align:justify">Зеркальные аппараты наиболее популярны и понятны в своей работе
+                        большинству
+                        любителей. Большинство моделей сейчас находятся на вторичном рынке, потому как только две модели
+                        продолжают выпускать:
+                        Nikon F6 и Nikon FM10. Остальные камеры можно искать на барахолках и на складах подвальных
+                        магазинов: Canon, Nikon, Pentax, Olympus, Minolta: Canon FTb QL, Canon A-1, Canon EOS 3, Canon
+                        F-1N), Leica R6. Также никто не списывает со счетов таких старичков как Зенит, Смена, Москва,
+                        Зоркий.</p>
+
+                    <p>С помощью зеркального аппарата можно делать самые настоящие шедевры, которые взорвут мир. Поэтому
+                        при
+                        любой возможности покупайте себе такую технику. Она никогда не будет лишней в хозяйстве.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul>
+                <li>
+                    <h3><a href="long_distance.html">Дальномерные</a></h3>
+                    <p style="text-align:justify">Это одни из первых массовых фотокамер, которые были популярны
+                        благодаря компании Leica. Именно этот бренд сделал первые маркетинговые шаги навстречу конечному
+                        потребителю и понес фотографию в массы. Все последующие модели от других фирм практически
+                        копировали первый дальномерный пленочный аппарат. Эти аппараты похожи на шкальные, но отличаются
+                        от них возможностью менять объективы, другим механизмом наведения на резкость, за что как раз и
+                        любят и уважают эти камеры. Максимальное фокусное расстояние для объективов дальномерок — 135
+                        мм, это небольшой минус, но этого вполне хватает для большинства задач: съемка портретов,
+                        ребенка, свадьбы, можно делать отличные пейзажи или снимать путешествуя.
+                    </p>
+                    <p>
+                        Снимки,сделанные с помощью дальномерных пленочных камер отличаются невероятной пластичностью и
+                        цветопередачей, возможностью составлять уникальные композиции. По сути беззеркальные
+                        фотоаппараты являются наследниками традиций дальномерок.
+                    </p>
+                    <p>В зависимости от размера вашего бюджета, вы можете остановить свой выбор на таких дальномерных
+                        пленочных камерах: Leica, Voigtländer, Canon, Rollei, Fuji, Contax, Carl Zeiss, Minolta, ФЭД,
+                        Nikon,
+                        Зоркий, Hasselblad XPan II, Bessa R4A.
+                    </p>
+                </li>
+                <li>
+                    <div class="photo">
+                        <a href="long_distance.html"><img src="images/long_camera.jpg"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul>
+                <li>
+                    <div class="photo">
+                        <a href="scaled.html"><img src="images/scale_camera.jpg"></a>
+                    </div>
+                </li>
+                <li>
+                    <h3><a href="scaled.html">Шкальные</a></h3>
+                    <p style="text-align:justify">Эти представители пленочников имеют не сменную оптику в пределах 38-40
+                        мм, большинство
+                        из них использовали ручной механизм наведения резкости. Данные камеры часто компактные и
+                        относятся к
+                        любительскому классу. Их можно использовать в любых ситуациях, они не требуют специальных знаний
+                        и
+                        умения в съемке. У вас будут получаться хорошие снимки, не более.</p>
+                    <p>
+
+                        Вы можете рассматривать такие пленочные шкальные камеры: Rollei 35, Смена 8М, Zeiss Ikon
+                        Contessa,
+                        Olympus μ. Конечно же их производство приостановлено, поэтому можно рассчитывать только на
+                        покупку бу
+                        фотоаппарата.</p>
+
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
 </div>
 </body>

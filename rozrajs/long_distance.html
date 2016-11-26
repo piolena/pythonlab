@@ -3,8 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Дальномерные</title>
+    <link rel="stylesheet" href="main.css"/>
+    <style>
+        body  {
+            background-image: url("images/field.jpg");
+            background-color: #cccccc;
+            background-repeat: round;
+        }
+
+
+    </style>
+    <script type="text/javascript" src="calendar.js"></script>
+    <script type="text/javascript" src="various.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            setInterval(update_calendar, 1000);
+        }
+
+
+    </script>
 </head>
 <body>
-    <a href="main.html">Вернуться к главному списку</a>
+<div class="row">
+    <h3 style="text-align: center;">Дальномерные фотоаппараты</h3>
+    <ul>
+        <li>
+            <p>Предлагаем Вашему вниманию фотографию, снятую на <b>дальномерный</b> пленочный фотоаппарат. </p>
+            <p>Снимки,сделанные с помощью дальномерных пленочных камер отличаются невероятной пластичностью и
+                        цветопередачей, возможностью составлять уникальные композиции. По сути беззеркальные
+                        фотоаппараты являются наследниками традиций дальномерок.
+            </p>
+        </li>
+        <li>
+            <div style="text-align: center;">
+                <input type="button" value="Другая сторона фото" onclick="bw_image('horse')">
+                <a href="main.html">Вернуться к главному списку</a>
+            </div>
+            <div class="photo_without_margin">
+                <a href="mirror.html"><img id="horse" src="images/horse.jpg"></a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <span>now:</span>
+                <span id="current_date" style="margin 0 30px 0 30px;"></span>
+                <span id="current_time"></span>
+            </div>
+            <p style="text-align:justify">
+                Это одни из первых массовых фотокамер, которые были популярны благодаря компании Leica. Именно этот
+                бренд сделал первые маркетинговые шаги навстречу конечному потребителю и понес фотографию в массы. Все
+                последующие модели от других фирм практически копировали первый дальномерный пленочный аппарат. Эти
+                аппараты похожи на шкальные, но отличаются от них возможностью менять объективы, другим механизмом
+                наведения на резкость, за что как раз и любят и уважают эти камеры. Максимальное фокусное расстояние для
+                объективов дальномерок — 135 мм, это небольшой минус, но этого вполне хватает для большинства задач:
+                съемка портретов, ребенка, свадьбы, можно делать отличные пейзажи или снимать путешествуя.
+            </p>
+            <p>
+                В зависимости от размера вашего бюджета, вы можете остановить свой выбор на таких дальномерных пленочных
+                камерах: Leica, Voigtländer, Canon, Rollei, Fuji, Contax, Carl Zeiss, Minolta, ФЭД, Nikon, Зоркий,
+                Hasselblad XPan II, Bessa R4A.
+            </p>
+        </li>
+    </ul>
+</div>
 </body>
 </html>
