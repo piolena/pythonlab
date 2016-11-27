@@ -15,6 +15,10 @@ a:hover {
     margin: 10px 20px 10px 20px;
 }
 
+.row li {
+    margin: 0px 20px 0px 20px;
+}
+
 .title {
     align: center;
 }

@@ -15,7 +15,6 @@
                 background: -ms-linear-gradient(top, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
                 background: linear-gradient(to bottom, rgba(238,206,155,1) 0%, rgba(253,249,242,1) 66%, rgba(253,249,242,1) 100%);
             }
-
     </style>
 </head>
 <body>
@@ -25,41 +24,45 @@
     <div class="row">
         <ul>
             <li>
-                <div style="margin: 30px; padding: 20px; background-color: white;">
-                    <form name="deep" id="deep">
+                <div style="margin: 30px; padding: 20px; background-color: white; width:400px;">
+                    <form id="deep">
                         <fieldset>
                             <legend>Расчет диафрагмы по глубине резкости</legend>
                             <span>Фокусное объектва:</span>
                             <select name="focus" onchange="update(this, 'focus_value')">
-                                <option value="1">small</option>
-                                <option value="2">medium</option>
-                                <option value="3" default="default">big</option>
+                                <option value="17">short</option>
+                                <option value="50">medium</option>
+                                <option value="100">long</option>
+                                <option value="300" selected="selected">extra long</option>
                             </select>
-                            <span id="focus_value">3</span><br>
+                            <span id="focus_value">300</span><span>мм</span><br>
 
-                            <span>Диаметр резкости:</span>
+                            <span>Рассеяние:</span>
                             <input type="range" name="delta" min="0" max="1" step="0.01"
-                                   onchange="update(this, 'delta_value')" value="0.5">
-                            <span id="delta_value">0.5</span><br>
+                                   onchange="update(this, 'delta_value')" value="0.015">
+                            <span id="delta_value">0.015</span><span>мм</span><br>
 
-                            <span>Ближний радиус:</span>
-                            <input type="range" name="r_min" min="1" max="1000" step="1"
-                                   onchange="update(this, 'r_min_value')" value="50">
-                            <span id="r_min_value">50</span><br>
-
-                            <span>Расстояние до объекта:</span>
+                            <span>Дистанция:</span>
                             <input type="range" name="r_center" min="1" max="1000" step="1"
                                    onchange="update(this, 'r_center_value')" value="100">
-                            <span id="r_center_value">100</span><br>
+                            <span id="r_center_value">100</span><span>м</span><br>
 
-                            <span>Дальний радиус:</span>
-                            <input type="range" name="r_max" min="1" max="1000" step="1"
-                                   onchange="update(this, 'r_max_value')" value="500">
-                            <span id="r_max_value">500</span><br>
+                            <span>ГРИП-радиус:</span>
+                            <input type="range" name="r_grip" min="1" max="100" step="1"
+                                   onchange="update(this, 'r_grip_value')" value="5">
+                            <span id="r_grip_value">5</span><span>м</span></br></br>
 
-                            <span>Диафрагма:</span><span id="diafragma_value">0</span>
+                            <span>Диафрагма:</span><span id="diafragma_value">0</span></br>
+                            </br><span>глубина резкости:</span>
+                            <span>R1:</span><span id="r1">95</span><span>м</span>
+                            <span>R2:</span><span id="r2">105</span><span>м</span>
                         </fieldset>
                     </form>
+                </div>
+            </li>
+            <li>
+                <div style="margin: 0 50px;">
+                    <img src="images/grip.jpg" width="100%" height="100%">
                 </div>
             </li>
         </ul>
@@ -75,14 +78,18 @@
                     <a href="mirror.html"><h3>Зеркальная пленочная камера</h3></a>
                     <p style="text-align:justify">Зеркальные аппараты наиболее популярны и понятны в своей работе
                         большинству
-                        любителей. Большинство моделей сейчас находятся на вторичном рынке, потому как только две модели
+                        любителей. Большинство моделей сейчас находятся на вторичном рынке, потому как только две
+                        модели
                         продолжают выпускать:
                         Nikon F6 и Nikon FM10. Остальные камеры можно искать на барахолках и на складах подвальных
-                        магазинов: Canon, Nikon, Pentax, Olympus, Minolta: Canon FTb QL, Canon A-1, Canon EOS 3, Canon
-                        F-1N), Leica R6. Также никто не списывает со счетов таких старичков как Зенит, Смена, Москва,
+                        магазинов: Canon, Nikon, Pentax, Olympus, Minolta: Canon FTb QL, Canon A-1, Canon EOS 3,
+                        Canon
+                        F-1N), Leica R6. Также никто не списывает со счетов таких старичков как Зенит, Смена,
+                        Москва,
                         Зоркий.</p>
 
-                    <p>С помощью зеркального аппарата можно делать самые настоящие шедевры, которые взорвут мир. Поэтому
+                    <p>С помощью зеркального аппарата можно делать самые настоящие шедевры, которые взорвут мир.
+                        Поэтому
                         при
                         любой возможности покупайте себе такую технику. Она никогда не будет лишней в хозяйстве.</p>
                 </li>
