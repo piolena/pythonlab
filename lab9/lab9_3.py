@@ -1,14 +1,13 @@
 '''
-    Mutation partial area (10%)
+    Mutation partial area (e.g. 10%)
 '''
 from mutation import *
 
 string = input('Input a string:')
-frequence = int(input('Input a frequence:'))
+frequence = int(input('Input a frequence,%:'))
 
 while string != 'stop':
-    user_azos = filter(letter_is_azot_osn, list(string))
-    user_azos = list(user_azos)
+    user_azos = list(filter(letter_is_azot_osn, list(string)))
     print('start sequence:  ', user_azos)
     # mutate some
     mutate_by_frequence(user_azos, frequence)
