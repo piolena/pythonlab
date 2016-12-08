@@ -2,11 +2,6 @@ import random
 
 azos = ['H', 'C', 'T', 'G', 'U']
 
-def actions(action): {
-  'add': add_random,
-  'delete': delete_first
-}.get(action, 'no data')
-
 def add_random(list):
     list.append(random_azos())
     return ''.join(list)
@@ -23,9 +18,6 @@ def rnd_mutation(list):
     mutate_by_frequence(list, 25)
     return ''.join(list)
 
-
-
-
 def letter_is_azot_osn(letter):
     return letter in azos
 
@@ -41,7 +33,6 @@ def mutate_by_frequence(list, freq):
     while area < len(list):
         if area % interval == 0:
             new_osn = random_azos()
-            print('mutation number ', area, ' was ', list[area], ' mutate to ', new_osn)
             list[area] = new_osn
         area = area + 1
 
