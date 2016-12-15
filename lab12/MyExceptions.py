@@ -1,0 +1,2 @@
+class MutationException(Exception):
+    pass
