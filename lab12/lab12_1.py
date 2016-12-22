@@ -1,3 +1,4 @@
+from MyExceptions import *
 from Sequence import *
 from save import *
 
@@ -34,8 +35,10 @@ while action != 'stop':
             raise NotImplementedError
     except KeyError:
         print('Can`t show it, no such key in result dictionary!, try another please')
-    except FileNotFoundError:
-        print('No such file, try another please')
+    except FileNotFoundError as fileError:
+        print(fileError)
+    except IOError as error:
+        print(error)
     except NotImplementedError:
         print('Unknown action, try another please')
     except MutationException as ex:

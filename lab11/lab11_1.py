@@ -1,5 +1,5 @@
-from save import *
 from Sequence import *
+from save import *
 
 seq = Sequence()
 print('start sequense is: ', seq.as_str())
@@ -18,7 +18,7 @@ while action != 'stop':
             break
         except KeyError:
             print('No such key in result dictionary!, try another please')
-    elif action == 'save':
+    elif action == 'save.py':
         save(result)
     elif action == 'load':
         result = load()

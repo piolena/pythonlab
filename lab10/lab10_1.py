@@ -14,7 +14,7 @@ while action != 'stop':
     elif action[:5] == "show ":
         key = action[5:]
         print(key, ':', result[key])
-    elif action == 'save':
+    elif action == 'save.py':
         save(result)
     elif action == 'load':
         result = load()
